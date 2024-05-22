@@ -1,0 +1,109 @@
+<div class="body-login">
+  <div class="row">
+    <div class="col-4 body-height"></div>
+    <div class="col-4">
+      <div class="mylogin">
+        <div
+          class="card border primary text-center login-body"
+        
+        >
+          <h2 class="card-title student-login" >Employee Login</h2>
+          <form [formGroup]="userData" (ngSubmit)="seeData()">
+            <div>
+              <label for="uid" class="form-label user-login" 
+                >Enter User Id</label
+              >
+              <input
+                type="text"
+                name="uid"
+                id="uid"
+                placeholder="Enter User ID"
+                formControlName="userId"
+                class="form-control"
+              />
+
+              <div
+                class="alert alert-danger"
+                *ngIf="
+                  userData.get('userId').invalid &&
+                  userData.get('userId').touched
+                "
+              >
+                <div class="inv-mesg"
+                  *ngIf="userData.get('userId').errors.required"
+                  
+                >
+                  This Field is Required
+                </div>
+                <div class="inv-mesg2"
+                  *ngIf="userData.get('userId').errors.pattern"
+                  
+                >
+                  Employee Id Is Invalid
+                </div>
+              </div>
+            </div>
+            <div>
+              <label for="upass" class="form-label user-password" 
+                >Enter UserPassWord</label
+              >
+              <input
+                type="password"
+                name="upass"
+                id="upass"
+                placeholder="Enter User Password"
+                formControlName="userPass"
+                class="form-control"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="
+                  userData.get('userPass').invalid &&
+                  userData.get('userPass').touched
+                "
+              >
+                <div class="alert-msg"
+                  *ngIf="userData.get('userPass').errors.required"
+                 
+                >
+                  This Field is Required
+                </div>
+                <div class="invalid-msg"
+                  *ngIf="userData.get('userPass').errors.pattern"
+                
+                >
+                  Invalid userPass format. Please enter a valid userPass
+                  address.
+                </div>
+              </div>
+            </div>
+            <br />
+            <br />
+            <button
+              class="btn btn-outline-primary submit-button"
+              type="submit"
+              routerLink="/empdash"
+            
+            >
+              Login</button
+            >
+            <br />
+
+            <!-- <button
+              class="btn btn-outline-danger"
+              type="submit"
+              style="background-color: yellow; color: black"
+            >
+              Login as Admin
+            </button> -->
+          </form>
+
+          <a class="register-user" href="/Employee-Reg" 
+            >Register</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>

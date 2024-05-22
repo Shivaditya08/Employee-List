@@ -1,0 +1,70 @@
+*{
+    border: 2px black solid;
+    margin:auto;
+    padding: 15px;
+    height: 150%;
+}
+
+.containerdiv {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+.formdiv {
+    margin-top: 25%;
+    background-color: lightgray;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 173px;
+    padding-right: 212px;
+    box-shadow: 10px 10px 8px black;
+}
+.set-margin {
+    margin-top: 10px; 
+}
+.set-margin-submit {
+    margin-top: 30px;
+}
+.student-login{
+    color: white
+}
+.user-login{
+    color: white 
+}
+.user-password{
+    color: white
+}
+.submit-button{
+    background-color: yellow; 
+    color: black
+}
+.register-user{
+    color: yellow; 
+    font-weight: bold
+}
+.alert-msg{
+    color: red
+}
+.invalid-msg{
+    color: red
+}
+.login-body{
+    background-color: black
+}
+.body-login{
+    background-color: black;
+     height: 100%
+}
+.row{
+    color: black; 
+    font-size: 18px
+}
+.body-height{
+    height: 100%;
+}
+.inv-mesg{
+    color: red
+}
+.inv-mesg2{
+    color: red
+}

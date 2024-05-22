@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <form [formGroup]="empData" (ngSubmit)="addData()">
+      <div>
+        <label for="" class="form-label">Enter Name</label>
+        <input
+          type="text"
+          name="empName"
+          id="empName"
+          class="form-control"
+          formControlName="name"
+        />
+      </div>
+
+      <div>
+        <label for="" class="form-label">Enter User Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="form-control"
+          formControlName="username"
+        />
+      </div>
+
+      <div>
+        <label for="" class="form-label">Enter Website</label>
+        <input
+          type="text"
+          name="Website"
+          id="Website"
+          class="form-control"
+          formControlName="website"
+        />
+      </div>
+
+      <div>
+        <label for="" class="form-label">Enter City</label>
+        <input
+          type="text"
+          name="City"
+          id="City"
+          class="form-control"
+          formControlName="city"
+        />
+      </div>
+      <div>
+        <label for="" class="form-label">Enter Email</label>
+        <input
+          type="email"
+          name="Email"
+          id="Email"
+          class="form-control"
+          formControlName="email"
+        />
+      </div>
+      <div>
+        <label for="" class="form-label">Enter Contact</label>
+        <input
+          type="tel"
+          name="Contact"
+          id="phone"
+          class="form-control"
+          formControlName="phone"
+        />
+      </div>
+      <br />
+      <button
+        type="submit"
+        class="btn btn-outline-primary"
+        [disabled]="empData.invalid"
+      >
+        Submit</button
+      >&nbsp;
+      <button type="reset" class="btn btn-outline-primary">Reset</button>
+    </form>
+  </div>
+</div>

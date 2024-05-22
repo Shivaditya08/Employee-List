@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "uid": "admin@gmail.com",
+      "upass": "admin@123",
+      "role": "Admin"
+    },
+    {
+      "id": "2",
+      "uid": "hero@gmail.com",
+      "upass": "hero@123",
+      "role": "Trainer"
+    },
+    {
+      "id": "3",
+      "uid": "king@gmail.com",
+      "upass": "king@123",
+      "role": "Counceler"
+    },
+    {
+      "id": "4",
+      "uid": "queen@gmail.com",
+      "upass": "queen@123",
+      "role": "Trainer"
+    }
+  ]
+}
+ 

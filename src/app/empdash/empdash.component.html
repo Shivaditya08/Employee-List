@@ -1,0 +1,170 @@
+<div class="container employee-dashboard">
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <img
+          src="https://tse4.mm.bing.net/th/id/OIP.KZ_UBFeTjFTqWRdGNDGhFgHaEo?rs=1&pid=ImgDetMain"
+          alt=""
+          class="logo-img"
+        />
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="navbar-container">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      [routerLink]="['/home']"
+                      (mouseover)="hover = true"
+                      (mouseout)="hover = false"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      [routerLink]="['/about']"
+                      (mouseover)="hover = true"
+                      (mouseout)="hover = false"
+                      >About</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      [routerLink]="['/contact']"
+                      (mouseover)="hover = true"
+                      (mouseout)="hover = false"
+                      >Contact</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div></div>
+        <!-- <div (click)="logout()" style="cursor: pointer;">Logout</div>  -->
+        <button
+          class="btn btn-danger exit-button"
+          
+          (click)="logout()"
+        >
+          <mat-icon class="example-icon" aria-hidden="false"
+            >exit_to_app</mat-icon
+          >
+        </button>
+
+        <br />
+        <div class="welcome-message">
+          <strong> Welcome </strong><b>{{ showName }} !</b>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div>
+            <button
+              type="button"
+              [routerLink]="['/AddEmp']"
+              class="btn btn-primary mb-2"
+            >
+              <i class="fa fa-plus" aria-hidden="true"></i> Add Employee
+            </button>
+          </div>
+
+          <div class="form-group me-2 sort">
+           
+            <select
+              class="form-control"
+              [(ngModel)]="sortBy"
+              (change)="sortData()"
+            >
+              <option value="">Sort By:-</option>
+              <option *ngFor="let category of categories" [value]="category">
+                {{ category }}
+              </option>
+            </select>
+          </div>
+
+          <div class="me-2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search"
+              [(ngModel)]="searchText"
+              (input)="search()"
+            />
+          </div>
+        </div>
+
+        <div class=" table-body">
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Website</th>
+                <th scope="col">City</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let emp of filteredEmpData; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ emp.name }}</td>
+                <td>{{ emp.username }}</td>
+
+                <td>{{ emp.email }}</td>
+                <td>{{ emp.phone }}</td>
+                <td>{{ emp.website }}</td>
+                <td>{{ emp.address.city }}</td>
+
+                <td>
+                  <div class="d-flex">
+                    <button
+                      [routerLink]="['/EditEmp', emp.id]"
+                      class="btn btn-danger btn-sm me-1"
+                      title="Edit"
+                    >
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="btn btn-danger btn-sm"
+                      (click)="deleteEmployee(emp)"
+                      title="Delete"
+                    >
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer"><app-footer></app-footer></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,282 @@
+<div>
+  <form
+    #refutdf="ngForm"
+    [formGroup]="employeeForm"
+    (ngSubmit)="submitData(refutdf.value)"
+    class="file"
+  >
+    <div class="container">
+      <div class="display-6 text-center heading-line">
+        <strong>Create Your Account</strong>
+      </div>
+      <br />
+      <div class="row">
+        <div>
+          <label class="form-label">Enter Your Full Name:</label>
+          <input
+            type="text"
+            placeholder="Your name"
+            class="form-control"
+            name="fname"
+            formControlName="fname"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              employeeForm.get('fname').invalid &&
+              employeeForm.get('fname').touched
+            "
+          >
+            <div *ngIf="employeeForm.get('fname').errors.required">
+              This Field is Required
+            </div>
+            <div *ngIf="employeeForm.get('fname').errors.pattern">
+              Employee name must contain only character min-3 and max-20
+            </div>
+          </div>
+        </div>
+        <div>
+          <label class="form-label">Enter Your Email:</label>
+          <input
+            type="text"
+            placeholder="name@company.com"
+            class="form-control"
+            name="email"
+            formControlName="email"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              employeeForm.get('email').invalid &&
+              employeeForm.get('email').touched
+            "
+          >
+            <div *ngIf="employeeForm.get('email').errors.required">
+              This Field is Required
+            </div>
+            <div *ngIf="employeeForm.get('email').errors.pattern">
+              Invalid email format. Please enter a valid email address.
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div>
+          <label class="form-label">Enter Your Contact No:</label>
+          <input
+            type="text"
+            placeholder="contact number"
+            class="form-control"
+            name="contact"
+            formControlName="contact"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              employeeForm.get('contact').invalid &&
+              employeeForm.get('contact').touched
+            "
+          >
+            <div *ngIf="employeeForm.get('contact').errors.required">
+              This Field is Required
+            </div>
+            <div *ngIf="employeeForm.get('contact').errors.pattern">
+              Contact Details must contain digits between 0-9
+            </div>
+          </div>
+        </div>
+        <br />
+        <div>
+          <label class="form-label">Select Your Gender:</label>
+          <br />
+
+          <label class="form-check-label" for="male">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="gender"
+              formControlName="gender"
+              value="male"
+            />
+            Male
+          </label>
+          &nbsp;
+
+          <label class="form-check-label" for="female">
+            <input
+              type="radio"
+              class="form-check-input"
+              name="gender"
+              formControlName="gender"
+              value="female"
+            />
+            Female
+          </label>
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              employeeForm.get('gender').invalid &&
+              employeeForm.get('gender').touched
+            "
+          >
+            <div *ngIf="employeeForm.get('gender').errors.required">
+              This Field is Required
+            </div>
+            <div *ngIf="employeeForm.get('gender').errors.pattern">
+              Invalid email format. Please enter a valid email address.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label class="form-label">Select Your Country:</label>
+          <select class="form-control" name="country" formControlName="country">
+            <option value="" selected>Select Country</option>
+            <option value="USA" selected>USA</option>
+            <option value="India">India</option>
+          </select>
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              employeeForm.get('country').invalid &&
+              employeeForm.get('country').touched
+            "
+          >
+            <div *ngIf="employeeForm.get('country').errors.required">
+              This Field is Required
+            </div>
+          </div>
+        </div>
+        <div>
+          <label class="form-label">Select Your City:</label>
+          <select class="form-control" name="city" formControlName="city">
+            <option value="" selected>Select City</option>
+            <option
+              value="New York"
+              selected
+              *ngIf="employeeForm.get('country').value === 'USA'"
+            >
+              New York
+            </option>
+            <option
+              value="Los Angeles"
+              *ngIf="employeeForm.get('country').value === 'USA'"
+            >
+              Los Angeles
+            </option>
+            <option
+              value="New Delhi"
+              *ngIf="employeeForm.get('country').value === 'India'"
+            >
+              New Delhi
+            </option>
+            <option
+              value="Mumbai"
+              *ngIf="employeeForm.get('country').value === 'India'"
+            >
+              Mumbai
+            </option>
+          </select>
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              employeeForm.get('city').invalid &&
+              employeeForm.get('city').touched
+            "
+          >
+            <div *ngIf="employeeForm.get('city').errors.required">
+              This Field is Required
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div>
+          <label class="form-label">Enter Your Password</label>
+          <input
+            type="password"
+            placeholder="********"
+            class="form-control"
+            name="password"
+            formControlName="password"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              employeeForm.get('password').invalid &&
+              employeeForm.get('password').touched
+            "
+          >
+            <div *ngIf="employeeForm.get('password').errors.required">
+              This Field is Required
+            </div>
+            <div *ngIf="employeeForm.get('password').errors.pattern">
+              Password must contain number,special character and uppercase as
+              well as lowercase And it must contain min-6 and max-16 character
+            </div>
+          </div>
+        </div>
+        <div>
+          <label class="form-label">Enter Confirm Password</label>
+          <input
+            type="password"
+            placeholder="********"
+            class="form-control"
+            name="upass2"
+            formControlName="upass2"
+          />
+
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              employeeForm.get('upass2').invalid &&
+              employeeForm.get('upass2').touched
+            "
+          >
+            <div *ngIf="employeeForm.get('upass2').errors.required">
+              This Field is Required
+            </div>
+            <div *ngIf="employeeForm.get('upass2').errors.pattern">
+              Password must contain number,special character and uppercase as
+              well as lowercase And it must contain min-6 and max-16 character
+            </div>
+          </div>
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              employeeForm.get('upass2').touched &&
+              employeeForm.get('password').value !=
+                employeeForm.get('upass2').value
+            "
+          >
+            Password doesn't match
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <br />
+      <div>
+        <button
+          type="submit"
+          class="btn btn-outline-primary btn-block"
+          [disabled]="refutdf.invalid"
+        >
+          Submit</button
+        >&nbsp; &nbsp;
+        <button
+          type="reset"
+          class="btn btn-outline-secondary btn-block"
+          [disabled]="refutdf.invalid"
+        >
+          Cancel
+        </button>
+      </div>
+      <br />
+    </div>
+  </form>
+</div>

@@ -1,0 +1,45 @@
+.container {
+    margin-top: 100px;
+    margin: auto;
+    width: 500px;
+    background-color: rgb(8, 8, 8);
+}
+
+.form-label {
+    color: white;
+}
+
+.alert {
+    color: white;
+}
+
+.btn {
+    color: black;
+}
+
+.btn-outline-primary {
+    background-color: yellow;
+    margin-left: 29%; 
+
+}
+
+.btn-outline-secondary {
+    background-color: yellow;
+        
+  
+}
+
+.file {
+    background-color: black;
+    height: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+.heading-line{
+    color: white;
+}
+.form-check-label{
+    color: white;
+}
